@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker Tutorial</title>
+    <link rel="stylesheet" href="style.css" type="text/html">
+</head>
+<body>
+    <div class='container' id='container'>
+        <h1>User Profile</h1>
+        <img src='profile-picture/' alt='user-profile' height="200px" width="200px">
+        <hr />
+        <span>Name: </span><h3 id='name'>Anurag Roy</h3>
+        <hr />
+        <span>Email: </span><h3 id='email'>anuragroy395@gmail.com</h3>
+        <hr />
+        <span>Interests: </span><h3 id='interests'>reading,coding</h3>
+        <hr />
+        <button class='button' onclick="saveProfile()">Save Profile</button>
+        </div>
+        <div class='container' id='container-edit'>
+        <h1>User Profile</h1>
+        <img src='profile-picture/' alt='user-profile' height="200px" width="200px">
+        <hr />
+        <span>Name: </span><label for='input-name'></label><input type="text" id='input-name' value='Anurag Roy'/>
+        <hr />
+        <span>Email: </span><label for='input-email'></label><input type="text" id='input-email' value='anuragroy395@gmail.com' />
+        <hr />
+        <span>Interests: </span><label for='input-interests'></label><input type="text" id='input-interests' value='coding,riding bike' />
+        <hr />
+        <button class='button' onclick="handleUpdateProfileRequest()">Update Profile</button>
+    </div>
+    <script>
+        function saveProfile() {
+    document.querySelector('#container').style.display = 'none';
+    document.querySelector('#container-edit').style.display = 'block';
+
+    const name = document.querySelector('#name').textContent;
+    document.querySelector('#input-name').value = name;
+    const email = docuement.querySelector('#email').textContent;
+    document.querySelector('#input-email').value = email;
+    const interests = document.querySelector('#interests').textContent;
+    document.querySelector('#input-interests').value = interests;
+}
+
+function handleUpdateProfileRequest() {
+    document.querySelector('#name').textContent = document.querySelector('#input-name').value;
+    document.querySelector('#email').textContent = document.querySelector('#input-email').value;
+    document.querySelector('#interests').textContent = document.querySelector('#input-interests').value;
+
+    document.querySelector('#container').style.display = 'block';
+    document.querySelector('#container-edit').style.display = 'none';
+}
+    </script>
+</body>
+</html>
